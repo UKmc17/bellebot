@@ -6,17 +6,20 @@ client.on('ready', function (evt) {
 
 });
 client.on('message', function (user, userID, channelID, message, evt, client, msg, args)   {
-
-    if (message.substring(0, 1) == '-') {
-        var args = message.substring(1).split(' ');
-        var cmd = args[0];
-
-        args = args.splice(1);
-        switch(cmd) {
-            case 'Test':
+const commands = {
+	'play': (msg) => {
+		return msg.channel.sendMessage('You was tested for `HIV` and came back positve!);
                 client.sendMessage({
                     to: channelID,
                     message: 'You was tested for `HIV` and came back positve!'
+					       
+	client.on('message', function (user, userID, channelID, message, evt, client, msg, args)   {
+const commands = {
+	'play': (msg) => {
+		return msg.channel.sendMessage('You was tested for `HIV` and came back positve!);
+                client.sendMessage({
+                    to: channelID,
+                    message: 'You was tested for `HIV` and came back positve!'				       
                 });
             break;
 			case 'Me':
