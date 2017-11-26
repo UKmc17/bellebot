@@ -1,6 +1,6 @@
 {
   "name": "Belle",
-  "version": "0.2.001",
+  "version": "0.0.017",
   "description": "A v11 Discord.JS music bot",
   "main": "server.js",
   "scripts": {
