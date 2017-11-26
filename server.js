@@ -40,9 +40,9 @@ client.on('message', function (user, userID, channelID, message, evt, client, ms
 			case 'Ily':
                 client.mentions.userID.first();
                 client.sendMessage({
-			let member = message.mentions.members.first();
+			let userID = message.mentions.userID.first();
                   to: channelID,
-                  message: "I love you ${member}"
+                  message: "I love you (userID)"
               });
          }
      }
