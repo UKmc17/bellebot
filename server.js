@@ -1,9 +1,8 @@
 const { Client } = require('discord.js');
 const yt = require('ytdl-core');
-const tokens = require('./tokens.json');
-const client = new Client();
+const config = require('./config.json');
 
-let queue = {};
+const client = new Client();
 
 const commands = {
 	'play': (msg) => {
@@ -52,7 +51,7 @@ const commands = {
 					play(queue[msg.guild.id].songs.shift());
 				});
 			});
-		})(queue[msg.guild.id].songs.shift());
+		})(queue[msg.guild.id].songs[0]);
 	},
 	'join': (msg) => {
 		return new Promise((resolve, reject) => {
@@ -63,7 +62,7 @@ const commands = {
 	},
 	'add': (msg) => {
 		let url = msg.content.split(' ')[1];
-		if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url, or id after ${tokens.prefix}add`);
+		if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a url, or youtube video id after ${tokens.prefix}add`);
 		yt.getInfo(url, (err, info) => {
 			if(err) return msg.channel.sendMessage('Invalid YouTube Link: ' + err);
 			if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
