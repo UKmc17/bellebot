@@ -1,22 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs")
-var logger = require('winston');
 
-
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
-var bot = new Discord.Client({
-   token: auth.token,
-   autorun: true
-});
 bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+
 });
 bot.on('message', function (user, userID, channelID, message, evt, client, msg, args)   {
 
