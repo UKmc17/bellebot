@@ -90,7 +90,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-	if (!msg.content.startsWithconfig.prefix)) return;
+	if (!msg.content.startsWithconfig.prefix) return;
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
 });
 
