@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs")
 
-bot.on('ready', function (evt) {
+client.on('ready', function (evt) {
 
 });
-bot.on('message', function (user, userID, channelID, message, evt, client, msg, args)   {
+client.on('message', function (user, userID, channelID, message, evt, client, msg, args)   {
 
     if (message.substring(0, 1) == '-') {
         var args = message.substring(1).split(' ');
@@ -14,34 +14,35 @@ bot.on('message', function (user, userID, channelID, message, evt, client, msg, 
         args = args.splice(1);
         switch(cmd) {
             case 'Test':
-                bot.sendMessage({
+                client.sendMessage({
                     to: channelID,
                     message: 'You was tested for `HIV` and came back positve!'
                 });
             break;
 			case 'Me':
-                bot.sendMessage({
+                client.sendMessage({
                     to: channelID,
                     message: 'Meh, ur life nearly as boring as my code'
                 });
             break;
 			case 'Slap':
-                bot.sendMessage({
+                client.sendMessage({
                     to: channelID,
                     message: 'Bitch get out my way!'
                 });
             break;
 			case 'woof':
-                bot.sendMessage({
+                client.sendMessage({
                     to: channelID,
                     message: 'Woof!'
                 });
             break;
 			case 'Ily':
-                bot.mentions.userID.first();
-                bot.sendMessage({
+                client.mentions.userID.first();
+                client.sendMessage({
+			let member = message.mentions.members.first();
                   to: channelID,
-                  message: "I love you ${message.member.mentison}"
+                  message: "I love you ${member}"
               });
          }
      }
